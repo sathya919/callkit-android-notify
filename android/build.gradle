@@ -52,7 +52,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
-    testImplementation "junit:junit:$junitVersion"
+  implementation "com.amitshekhar.android:android-networking:1.0.2"
+  implementation 'com.twilio:video-android:7.1.0'
+    implementation 'androidx.preference:preference:1.2.0'
+  implementation 'com.google.android.material:material:1.6.1'
+  implementation 'com.google.firebase:firebase-messaging:23.0.6'
+  testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
 }

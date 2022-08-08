@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "569393261038",
+    "project_id": "vonagepoc-ab7fd",
+    "storage_bucket": "vonagepoc-ab7fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569393261038:android:6094a645351bcda21086ff",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569393261038-fkk3t3gvpb01pqase0odo89rcccifk4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0M0VJY_Mlfi8C2hGmncaby33t_yZddo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569393261038-fkk3t3gvpb01pqase0odo89rcccifk4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
