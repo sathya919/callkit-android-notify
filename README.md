@@ -1,0 +1,19 @@
+# callkit-android-notify
+
+capacitor callkit for android
+
+## Install
+
+```bash
+npm install callkit-android-notify
+npx cap sync
+```
+
+## API
+
+<docgen-index></docgen-index>
+
+<docgen-api>
+<!-- run docgen to generate docs from the source -->
+<!-- More info: https://github.com/ionic-team/capacitor-docgen -->
+</docgen-api>
