@@ -1,86 +1,96 @@
 package com.test.callkit.androidcall;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.media.AudioManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
 
-import com.test.callkit.androidcall.util.CameraCapturerCompat;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.test.callkit.CallKitVoipPlugin;
 import com.test.callkit.R;
 
-import com.twilio.video.AudioCodec;
-import com.twilio.video.ConnectOptions;
-import com.twilio.video.EncodingParameters;
-import com.twilio.video.G722Codec;
-import com.twilio.video.H264Codec;
-import com.twilio.video.IsacCodec;
-import com.twilio.video.LocalAudioTrack;
-import com.twilio.video.LocalParticipant;
-import com.twilio.video.LocalVideoTrack;
-import com.twilio.video.OpusCodec;
-import com.twilio.video.PcmaCodec;
-import com.twilio.video.PcmuCodec;
-import com.twilio.video.RemoteAudioTrack;
-import com.twilio.video.RemoteAudioTrackPublication;
-import com.twilio.video.RemoteDataTrack;
-import com.twilio.video.RemoteDataTrackPublication;
-import com.twilio.video.RemoteParticipant;
-import com.twilio.video.RemoteVideoTrack;
-import com.twilio.video.RemoteVideoTrackPublication;
-import com.twilio.video.Room;
-import com.twilio.video.TwilioException;
-import com.twilio.video.Video;
-import com.twilio.video.VideoCodec;
-import com.twilio.video.VideoTrack;
-import com.twilio.video.VideoView;
-import com.twilio.video.Vp8Codec;
-import com.twilio.video.Vp9Codec;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import kotlin.Unit;
-import tvi.webrtc.VideoSink;
-
-
+//
+//import android.Manifest;
+//import android.annotation.SuppressLint;
+//import android.app.NotificationManager;
+//import android.app.PendingIntent;
+//import android.content.Context;
+//import android.content.Intent;
+//import android.content.SharedPreferences;
+//import android.content.pm.PackageManager;
+//import android.content.res.Resources;
+//import android.media.AudioManager;
+//import android.os.Build;
+//import android.os.Bundle;
+//import android.preference.PreferenceManager;
+//import android.util.Log;
+//import android.util.TypedValue;
+//import android.view.MenuItem;
+//import android.view.View;
+//import android.view.ViewGroup;
+//import android.widget.ImageView;
+//import android.widget.LinearLayout;
+//import android.widget.ProgressBar;
+//import android.widget.TextView;
+//import android.widget.Toast;
+//
+//import androidx.annotation.NonNull;
+//import androidx.annotation.Nullable;
+//import androidx.appcompat.app.AlertDialog;
+//import androidx.appcompat.app.AppCompatActivity;
+//import androidx.core.app.ActivityCompat;
+//import androidx.core.app.NotificationCompat;
+//import androidx.core.content.ContextCompat;
+//
+//import com.test.callkit.androidcall.util.CameraCapturerCompat;
+//import com.google.android.material.floatingactionbutton.FloatingActionButton;
+//import com.google.android.material.snackbar.Snackbar;
+//import com.test.callkit.CallKitVoipPlugin;
+//import com.test.callkit.R;
+//
+//import com.twilio.video.AudioCodec;
+//import com.twilio.video.ConnectOptions;
+//import com.twilio.video.EncodingParameters;
+//import com.twilio.video.G722Codec;
+//import com.twilio.video.H264Codec;
+//import com.twilio.video.IsacCodec;
+//import com.twilio.video.LocalAudioTrack;
+//import com.twilio.video.LocalParticipant;
+//import com.twilio.video.LocalVideoTrack;
+//import com.twilio.video.OpusCodec;
+//import com.twilio.video.PcmaCodec;
+//import com.twilio.video.PcmuCodec;
+//import com.twilio.video.RemoteAudioTrack;
+//import com.twilio.video.RemoteAudioTrackPublication;
+//import com.twilio.video.RemoteDataTrack;
+//import com.twilio.video.RemoteDataTrackPublication;
+//import com.twilio.video.RemoteParticipant;
+//import com.twilio.video.RemoteVideoTrack;
+//import com.twilio.video.RemoteVideoTrackPublication;
+//import com.twilio.video.Room;
+//import com.twilio.video.TwilioException;
+//import com.twilio.video.Video;
+//import com.twilio.video.VideoCodec;
+//import com.twilio.video.VideoTrack;
+//import com.twilio.video.VideoView;
+//import com.twilio.video.Vp8Codec;
+//import com.twilio.video.Vp9Codec;
+//
+//import java.util.ArrayList;
+//import java.util.Collections;
+//import java.util.List;
+//
+//import kotlin.Unit;
+//import tvi.webrtc.VideoSink;
+//import android.os.Bundle;
+//
+//import com.getcapacitor.BridgeActivity;
+//
+//
+//
+//
 public class CallActivity extends AppCompatActivity {
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-  }
-
-  //    private static final int CAMERA_MIC_PERMISSION_REQUEST_CODE = 1;
+    //
+//
+//      private static final int CAMERA_MIC_PERMISSION_REQUEST_CODE = 1;
 //    private static final int CAMERA_PERMISSION_INDEX = 0;
 //    private static final int MIC_PERMISSION_INDEX = 1;
 //    private static final String TAG = "VideoActivity";
@@ -160,18 +170,23 @@ public class CallActivity extends AppCompatActivity {
 //    /*
 //     * Audio management
 //     */
-//    private AudioSwitch audioSwitch;
+////    private AudioSwitch audioSwitch;
 //    private int savedVolumeControlStream;
 //
 //    private VideoSink localVideoView;
 //    private boolean disconnectedFromOnDestroy;
 //    private boolean enableAutomaticSubscription;
 //
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_video);
-//
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_video);
+
+        Toast.makeText(getApplicationContext(),"Answered",Toast.LENGTH_LONG).show();
+
+    }
+}
+
 //        primaryVideoView = findViewById(R.id.primary_video_view);
 //        thumbnailVideoView = findViewById(R.id.thumbnail_video_view);
 //        reconnectingProgressBar = findViewById(R.id.reconnecting_progress_bar);
@@ -212,7 +227,7 @@ public class CallActivity extends AppCompatActivity {
 //        /*
 //         * Setup audio management and set the volume control stream
 //         */
-//        audioSwitch = new AudioSwitch(getApplicationContext());
+////        audioSwitch = new AudioSwitch(getApplicationContext());
 //        savedVolumeControlStream = getVolumeControlStream();
 //        setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
 //        /*
@@ -222,8 +237,8 @@ public class CallActivity extends AppCompatActivity {
 //        if (!checkPermissionForCameraAndMicrophone()) {
 //            requestPermissionForCameraMicrophoneAndBluetooth();
 //        } else {
-//            audioSwitch.start(
-//                    (audioDevices, audioDevice) -> Unit.INSTANCE);
+////            audioSwitch.start(
+////                    (audioDevices, audioDevice) -> Unit.INSTANCE);
 //            createAudioAndVideoTracks();
 //        }
 //
@@ -335,13 +350,13 @@ public class CallActivity extends AppCompatActivity {
 //             * permissions, AudioSwitch should be started after providing the user the option
 //             * to grant the necessary permissions for bluetooth.
 //             */
-//            audioSwitch.start(
-//                    (audioDevices, audioDevice) -> Unit.INSTANCE);
+////            audioSwitch.start(
+////                    (audioDevices, audioDevice) -> Unit.INSTANCE);
 //
 //            if (cameraAndMicPermissionGranted) {
 //                createAudioAndVideoTracks();
 //            } else {
-//                Toast.makeText(this, R.string.permissions_needed, Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "permission needed", Toast.LENGTH_LONG).show();
 //            }
 //        }
 //    }
@@ -374,7 +389,7 @@ public class CallActivity extends AppCompatActivity {
 //        /*
 //         * Tear down audio management and restore previous volume stream
 //         */
-//        audioSwitch.stop();
+////        audioSwitch.stop();
 //        setVolumeControlStream(savedVolumeControlStream);
 //
 //        /*
@@ -419,7 +434,7 @@ public class CallActivity extends AppCompatActivity {
 //                    ActivityCompat.shouldShowRequestPermissionRationale(this, permission);
 //        }
 //        if (displayRational) {
-//            Toast.makeText(this, R.string.permissions_needed, Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Permission needed", Toast.LENGTH_LONG).show();
 //        } else {
 //            ActivityCompat.requestPermissions(
 //                    this, permissions, CAMERA_MIC_PERMISSION_REQUEST_CODE);
@@ -469,7 +484,7 @@ public class CallActivity extends AppCompatActivity {
 //        } else {
 //            CallActivity.this.startService(serviceIntent);
 //        }
-//        audioSwitch.activate();
+////        audioSwitch.activate();
 //        ConnectOptions.Builder connectOptionsBuilder =
 //                new ConnectOptions.Builder(accessToken).roomName(roomName);
 //
@@ -597,7 +612,8 @@ public class CallActivity extends AppCompatActivity {
 //     */
 //    private void setDisconnectAction() {
 //        connectActionFab.setImageDrawable(
-//                ContextCompat.getDrawable(this, R.drawable.ic_hangup));
+////                ContextCompat.getDrawable(this, R.drawable.ic_hangup));
+//                ContextCompat.getDrawable(this, android.R.drawable.star_on));
 //        connectActionFab.show();
 //        connectActionFab.setOnClickListener(disconnectClickListener());
 //    }
@@ -806,7 +822,7 @@ public class CallActivity extends AppCompatActivity {
 //
 //            @Override
 //            public void onConnectFailure(Room room, TwilioException e) {
-//                audioSwitch.deactivate();
+////                audioSwitch.deactivate();
 //                intializeUI();
 //            }
 //
@@ -814,10 +830,10 @@ public class CallActivity extends AppCompatActivity {
 //            public void onDisconnected(Room room, TwilioException e) {
 //                localParticipant = null;
 //                reconnectingProgressBar.setVisibility(View.GONE);
-//                CallActivity.this.room = null;
+////                CallActivity.this.room = null;
 //                // Only reinitialize the UI if disconnect was not called from onDestroy()
 //                if (!disconnectedFromOnDestroy) {
-//                    audioSwitch.deactivate();
+////                    audioSwitch.deactivate();
 //                    intializeUI();
 //                    moveLocalVideoToPrimaryView();
 //                }
@@ -1193,10 +1209,12 @@ public class CallActivity extends AppCompatActivity {
 //                localVideoTrack.enable(enable);
 //                int icon;
 //                if (enable) {
-//                    icon = R.drawable.ic_disable_camera;
+////                    icon = R.drawable.ic_disable_camera;
+//                    icon = android.R.drawable.ic_menu_camera;
 //                    switchCameraActionFab.show();
 //                } else {
-//                    icon = R.drawable.ic_enable_camera;
+////                    icon = R.drawable.ic_enable_camera;
+//                    icon = android.R.drawable.ic_menu_camera;
 //                    switchCameraActionFab.hide();
 //                }
 //                localVideoActionFab.setImageDrawable(
@@ -1215,11 +1233,12 @@ public class CallActivity extends AppCompatActivity {
 //            if (localAudioTrack != null) {
 //                boolean enable = !localAudioTrack.isEnabled();
 //                localAudioTrack.enable(enable);
-//                int icon = enable ? R.drawable.ic_mic : R.drawable.ic_mic_disabled;
+////                int icon = enable ? R.drawable.ic_mic : R.drawable.ic_mic_disabled;
+//                int icon = enable ? android.R.drawable.star_on : android.R.drawable.star_on;
 //                muteActionFab.setImageDrawable(ContextCompat.getDrawable(CallActivity.this, icon));
 //            }
 //        };
 //    }
-
-
-}
+//
+//
+//}

@@ -7,6 +7,7 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginHandle;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.CapacitorPlugin;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 
@@ -16,7 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-
+@CapacitorPlugin(name = "CallKitVoip")
 public class CallKitVoipPlugin extends Plugin {
     public  static  Bridge                      staticBridge = null;
     public          MyFirebaseMessagingService  messagingService;
@@ -33,6 +34,7 @@ public class CallKitVoipPlugin extends Plugin {
 
     @PluginMethod
     public void register(PluginCall call) {
+        Log.d("Inside RegisterPlugin","<<<>>>");
         final String topicName = call.getString("userToken");
         Log.d("CallKitVoip","register");
 
@@ -55,6 +57,7 @@ public class CallKitVoipPlugin extends Plugin {
                     call.reject("Cant subscribe to topic" + topicName);
                 });
         call.resolve();
+
     }
     public void notifyEvent(String eventName, String username, String connectionId){
         Log.d("notifyEvent",eventName + "  " + username + "   " + connectionId);

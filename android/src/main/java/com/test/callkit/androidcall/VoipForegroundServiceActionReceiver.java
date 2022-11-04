@@ -26,6 +26,8 @@ public class VoipForegroundServiceActionReceiver  extends BroadcastReceiver {
                 performClickAction(context, action,token,roomName,username);
             }
 
+            context.startService(new Intent(context,VoipBackgroundService.class));
+
             // Close the notification after the click action is performed.
 
 

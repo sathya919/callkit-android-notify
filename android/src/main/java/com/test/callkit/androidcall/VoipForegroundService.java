@@ -186,23 +186,26 @@ public class VoipForegroundService extends Service {
         }
     }
     public void createOngoingChannel() {
+        Uri defaultRingtone = Uri.parse("android.resource://"+getPackageName()+"/raw/alarm");
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
             NotificationChannel channel = new NotificationChannel(ONGOING_CHANNEL_ID, ONGOING_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
             channel.setDescription(ONGOING_CHANNEL_NAME);
 
-            channel.setSound(null,null);
+            channel.setSound(defaultRingtone,null);
             Objects.requireNonNull(getApplicationContext().getSystemService(NotificationManager.class)).createNotificationChannel(channel);
 
         }
     }
     public void createIncomingChannel() {
+        Uri defaultRingtone = Uri.parse("android.resource://"+getPackageName()+"/raw/alarm");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
             NotificationChannel channel = new NotificationChannel(INCOMING_CHANNEL_ID, INCOMING_CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
             channel.setDescription(INCOMING_CHANNEL_NAME);
 
-            channel.setSound(null,null);
+            channel.setSound(defaultRingtone,null);
 
 
             Objects.requireNonNull(getApplicationContext().getSystemService(NotificationManager.class)).createNotificationChannel(channel);

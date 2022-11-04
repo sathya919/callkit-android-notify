@@ -3,7 +3,9 @@ package com.test.callkit;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Log;
 
@@ -35,6 +37,17 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     super();
     Log.d(TAG, "class instantiated");
   }
+
+  @Override
+  public void onNewToken(String token) {
+    super.onNewToken(token);
+    Log.e("newToken from FCM", token);
+//Add your token in your sharepreferences.
+    SharedPreferences sp = getSharedPreferences("My Pref" , Context.MODE_PRIVATE);
+    sp.edit().putString("fcm_token",token).commit();
+//    getSharedPreferences("_", MODE_PRIVATE).edit().putString("fcm_token", token).apply();
+  }
+
 
   /**
    * Called when message is received.
